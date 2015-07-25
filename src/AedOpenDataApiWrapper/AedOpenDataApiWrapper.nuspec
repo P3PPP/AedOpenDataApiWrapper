@@ -5,6 +5,8 @@
     <version>$version$</version>
     <title>$title$</title>
     <authors>@ticktackmobile</authors>
+    <licenseUrl>https://github.com/P3PPP/AedOpenDataApiWrapper/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/P3PPP/AedOpenDataApiWrapper</projectUrl>
     <description>Web API wrapper for AED Open Data(http://hatsunejournal.jp/w8/AEDOpendata/).</description>
     <dependencies>
       <dependency id="Newtonsoft.Json" version="7.0.1" />
