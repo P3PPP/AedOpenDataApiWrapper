@@ -36,7 +36,7 @@
   <ItemGroup>
     <Compile Include="DataModels\AedInfo.cs" />
     <Compile Include="DataModels\City.cs" />
-    <Compile Include="Client.cs" />
+    <Compile Include="ApiClient.cs" />
     <Compile Include="DataModels\Country.cs" />
     <Compile Include="DataModels\Perfecture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
