@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace AedOpenDataApiWrapper
 {
-	public class Client :IDisposable
+	public class ApiClient :IDisposable
     {
 		private HttpClient httpClient = new HttpClient();
 
 		public string BaseUri { get; }
 
-		public Client(string baseUri = "https://aed.azure-mobile.net")
+		public ApiClient(string baseUri = "https://aed.azure-mobile.net")
 		{
 			BaseUri = baseUri;
         }
