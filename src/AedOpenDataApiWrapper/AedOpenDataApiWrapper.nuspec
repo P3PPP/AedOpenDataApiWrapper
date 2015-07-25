@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>@ticktackmobile</authors>
+    <description>Web API wrapper for AED Open Data(http://hatsunejournal.jp/w8/AEDOpendata/).</description>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="7.0.1" />
+      <dependency id="Microsoft.Net.Http" version="2.2.29" />
+    </dependencies>
+  </metadata>
+  <files>
+  </files>
+</package>
