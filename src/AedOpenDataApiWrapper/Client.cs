@@ -24,7 +24,7 @@ namespace AedOpenDataApiWrapper
 		/// "/api/CountryList"
 		/// </summary>
 		/// <returns></returns>
-		public async Task<List<string>> CountryList()
+		public async Task<List<string>> CountryListAsync()
 		{
 			var response = await httpClient.GetStringAsync(BaseUri + "/api/CountryList");
 			return JsonConvert.DeserializeObject<List<Country>>(response)
@@ -37,7 +37,7 @@ namespace AedOpenDataApiWrapper
 		/// </summary>
 		/// <param name="countryCode">国コード(e.g. jp, tw)</param>
 		/// <returns></returns>
-		public async Task<List<Perfecture>> PerfectureList(string countryCode)
+		public async Task<List<Perfecture>> PerfectureListAsync(string countryCode)
 		{
 			var requestUri = $"{BaseUri}/api/PerfectureList/{WebUtility.UrlEncode(countryCode)}";
 			var response = await httpClient.GetStringAsync(requestUri);
@@ -49,7 +49,7 @@ namespace AedOpenDataApiWrapper
 		/// "/api/aedgroup"
 		/// </summary>
 		/// <returns></returns>
-		public async Task<List<City>> AedGroup()
+		public async Task<List<City>> AedGroupAsync()
 		{
             var response = await httpClient.GetStringAsync(BaseUri + "/api/aedgroup");
             return JsonConvert.DeserializeObject<List<City>>(response);
@@ -61,7 +61,7 @@ namespace AedOpenDataApiWrapper
         /// </summary>
         /// <param name="perfecture">都道府県名</param>
         /// <returns></returns>
-        public async Task<List<AedInfo>> AedInfo(string perfecture)
+        public async Task<List<AedInfo>> AedInfoAsync(string perfecture)
 		{
             var requestUri = $"{BaseUri}/api/aedinfo/{WebUtility.UrlEncode(perfecture)}/";
             var response = await httpClient.GetStringAsync(requestUri);
@@ -75,7 +75,7 @@ namespace AedOpenDataApiWrapper
         /// <param name="perfecture">都道府県名</param>
         /// <param name="city">市区町村名</param>
         /// <returns></returns>
-        public async Task<List<AedInfo>> AedInfo(string perfecture, string city)
+        public async Task<List<AedInfo>> AedInfoAsync(string perfecture, string city)
 		{
             var requestUri = $"{BaseUri}/api/aedinfo/{WebUtility.UrlEncode(perfecture)}/{WebUtility.UrlEncode(city)}/";
             var response = await httpClient.GetStringAsync(requestUri);
@@ -90,7 +90,7 @@ namespace AedOpenDataApiWrapper
         /// <param name="longitude">経度</param>
         /// <param name="radius">半径(m)</param>
         /// <returns></returns>
-        public async Task<List<AedInfo>> AedSearch(double latitude, double longitude, int radius = 1000)
+        public async Task<List<AedInfo>> AedSearchAsync(double latitude, double longitude, int radius = 1000)
 		{
             var requestUri = $"{BaseUri}/api/AEDSearch?lat={latitude}&lng={longitude}&r={radius}";
             var response = await httpClient.GetStringAsync(requestUri);
@@ -104,7 +104,7 @@ namespace AedOpenDataApiWrapper
         /// <param name="latitude">緯度</param>
         /// <param name="longitude">経度</param>
         /// <returns></returns>
-        public async Task<List<AedInfo>> NearAed(double latitude, double longitude)
+        public async Task<List<AedInfo>> NearAedAsync(double latitude, double longitude)
 		{
             var requestUri = $"{BaseUri}/api/NearAED?lat={latitude}&lng={longitude}";
             var response = await httpClient.GetStringAsync(requestUri);
@@ -117,7 +117,7 @@ namespace AedOpenDataApiWrapper
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<List<AedInfo>> Id(int id)
+        public async Task<List<AedInfo>> IdAsync(int id)
 		{
             var requestUri = $"{BaseUri}/api/id/{id}/";
             var response = await httpClient.GetStringAsync(requestUri);
