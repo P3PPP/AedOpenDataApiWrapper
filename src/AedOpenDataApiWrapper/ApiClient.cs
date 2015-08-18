@@ -26,7 +26,7 @@ namespace AedOpenDataApiWrapper
 		/// <returns></returns>
 		public async Task<List<string>> CountryListAsync()
 		{
-			var response = await httpClient.GetStringAsync(BaseUri + "/api/CountryList");
+			var response = await httpClient.GetStringAsync(BaseUri + "/api/CountryList").ConfigureAwait(false);
 			return JsonConvert.DeserializeObject<List<Country>>(response)
 				.Select(x => x.CountryCode).ToList();
 		}
@@ -40,7 +40,7 @@ namespace AedOpenDataApiWrapper
 		public async Task<List<Perfecture>> PerfectureListAsync(string countryCode)
 		{
 			var requestUri = $"{BaseUri}/api/PerfectureList/{WebUtility.UrlEncode(countryCode)}";
-			var response = await httpClient.GetStringAsync(requestUri);
+			var response = await httpClient.GetStringAsync(requestUri).ConfigureAwait(false);
 			return JsonConvert.DeserializeObject<List<Perfecture>>(response);
 		}
 
@@ -51,7 +51,7 @@ namespace AedOpenDataApiWrapper
 		/// <returns></returns>
 		public async Task<List<City>> AedGroupAsync()
 		{
-            var response = await httpClient.GetStringAsync(BaseUri + "/api/aedgroup");
+            var response = await httpClient.GetStringAsync(BaseUri + "/api/aedgroup").ConfigureAwait(false);
             return JsonConvert.DeserializeObject<List<City>>(response);
         }
 
@@ -64,7 +64,7 @@ namespace AedOpenDataApiWrapper
         public async Task<List<AedInfo>> AedInfoAsync(string perfecture)
 		{
             var requestUri = $"{BaseUri}/api/aedinfo/{WebUtility.UrlEncode(perfecture)}/";
-            var response = await httpClient.GetStringAsync(requestUri);
+            var response = await httpClient.GetStringAsync(requestUri).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<List<AedInfo>>(response);
         }
 
@@ -78,7 +78,7 @@ namespace AedOpenDataApiWrapper
         public async Task<List<AedInfo>> AedInfoAsync(string perfecture, string city)
 		{
             var requestUri = $"{BaseUri}/api/aedinfo/{WebUtility.UrlEncode(perfecture)}/{WebUtility.UrlEncode(city)}/";
-            var response = await httpClient.GetStringAsync(requestUri);
+            var response = await httpClient.GetStringAsync(requestUri).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<List<AedInfo>>(response);
         }
 
@@ -93,7 +93,7 @@ namespace AedOpenDataApiWrapper
         public async Task<List<AedInfo>> AedSearchAsync(double latitude, double longitude, int radius = 1000)
 		{
             var requestUri = $"{BaseUri}/api/AEDSearch?lat={latitude}&lng={longitude}&r={radius}";
-            var response = await httpClient.GetStringAsync(requestUri);
+            var response = await httpClient.GetStringAsync(requestUri).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<List<AedInfo>>(response);
         }
 
@@ -107,7 +107,7 @@ namespace AedOpenDataApiWrapper
         public async Task<List<AedInfo>> NearAedAsync(double latitude, double longitude)
 		{
             var requestUri = $"{BaseUri}/api/NearAED?lat={latitude}&lng={longitude}";
-            var response = await httpClient.GetStringAsync(requestUri);
+            var response = await httpClient.GetStringAsync(requestUri).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<List<AedInfo>>(response);
         }
 
@@ -120,7 +120,7 @@ namespace AedOpenDataApiWrapper
         public async Task<List<AedInfo>> IdAsync(int id)
 		{
             var requestUri = $"{BaseUri}/api/id/{id}/";
-            var response = await httpClient.GetStringAsync(requestUri);
+            var response = await httpClient.GetStringAsync(requestUri).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<List<AedInfo>>(response);
         }
 
