@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace AedOpenDataApiWrapper
 {
 	public class ApiClient :IDisposable
-    {
+	{
 		private HttpClient httpClient = new HttpClient();
 
 		public string BaseUri { get; }
@@ -17,7 +17,7 @@ namespace AedOpenDataApiWrapper
 		public ApiClient(string baseUri = "https://aed.azure-mobile.net")
 		{
 			BaseUri = baseUri;
-        }
+		}
 
 		/// <summary>
 		/// 登録済国コード取得API
@@ -51,80 +51,80 @@ namespace AedOpenDataApiWrapper
 		/// <returns></returns>
 		public async Task<List<City>> AedGroupAsync()
 		{
-            var response = await httpClient.GetStringAsync(BaseUri + "/api/aedgroup").ConfigureAwait(false);
-            return JsonConvert.DeserializeObject<List<City>>(response);
-        }
+			var response = await httpClient.GetStringAsync(BaseUri + "/api/aedgroup").ConfigureAwait(false);
+			return JsonConvert.DeserializeObject<List<City>>(response);
+		}
 
-        /// <summary>
-        /// 都道府県単位でのAED位置情報取得API
-        /// "/api/aedinfo/[県名]/"
-        /// </summary>
-        /// <param name="perfecture">都道府県名</param>
-        /// <returns></returns>
-        public async Task<List<AedInfo>> AedInfoAsync(string perfecture)
+		/// <summary>
+		/// 都道府県単位でのAED位置情報取得API
+		/// "/api/aedinfo/[県名]/"
+		/// </summary>
+		/// <param name="perfecture">都道府県名</param>
+		/// <returns></returns>
+		public async Task<List<AedInfo>> AedInfoAsync(string perfecture)
 		{
-            var requestUri = $"{BaseUri}/api/aedinfo/{WebUtility.UrlEncode(perfecture)}/";
-            var response = await httpClient.GetStringAsync(requestUri).ConfigureAwait(false);
-            return JsonConvert.DeserializeObject<List<AedInfo>>(response);
-        }
+			var requestUri = $"{BaseUri}/api/aedinfo/{WebUtility.UrlEncode(perfecture)}/";
+			var response = await httpClient.GetStringAsync(requestUri).ConfigureAwait(false);
+			return JsonConvert.DeserializeObject<List<AedInfo>>(response);
+		}
 
-        /// <summary>
-        /// 市町村区単位でのAED位置情報取得API
-        /// "/api/aedinfo/[県名]/[市町村区名]"
-        /// </summary>
-        /// <param name="perfecture">都道府県名</param>
-        /// <param name="city">市区町村名</param>
-        /// <returns></returns>
-        public async Task<List<AedInfo>> AedInfoAsync(string perfecture, string city)
+		/// <summary>
+		/// 市町村区単位でのAED位置情報取得API
+		/// "/api/aedinfo/[県名]/[市町村区名]"
+		/// </summary>
+		/// <param name="perfecture">都道府県名</param>
+		/// <param name="city">市区町村名</param>
+		/// <returns></returns>
+		public async Task<List<AedInfo>> AedInfoAsync(string perfecture, string city)
 		{
-            var requestUri = $"{BaseUri}/api/aedinfo/{WebUtility.UrlEncode(perfecture)}/{WebUtility.UrlEncode(city)}/";
-            var response = await httpClient.GetStringAsync(requestUri).ConfigureAwait(false);
-            return JsonConvert.DeserializeObject<List<AedInfo>>(response);
-        }
+			var requestUri = $"{BaseUri}/api/aedinfo/{WebUtility.UrlEncode(perfecture)}/{WebUtility.UrlEncode(city)}/";
+			var response = await httpClient.GetStringAsync(requestUri).ConfigureAwait(false);
+			return JsonConvert.DeserializeObject<List<AedInfo>>(response);
+		}
 
-        /// <summary>
-        /// 周辺AED位置情報取得API
-        /// "/api/AEDSearch?lat=[緯度]&lng=[経度]&r=[検索半径(m)]"
-        /// </summary>
-        /// <param name="latitude">緯度</param>
-        /// <param name="longitude">経度</param>
-        /// <param name="radius">半径(m)</param>
-        /// <returns></returns>
-        public async Task<List<AedInfo>> AedSearchAsync(double latitude, double longitude, int radius = 1000)
+		/// <summary>
+		/// 周辺AED位置情報取得API
+		/// "/api/AEDSearch?lat=[緯度]&lng=[経度]&r=[検索半径(m)]"
+		/// </summary>
+		/// <param name="latitude">緯度</param>
+		/// <param name="longitude">経度</param>
+		/// <param name="radius">半径(m)</param>
+		/// <returns></returns>
+		public async Task<List<AedInfo>> AedSearchAsync(double latitude, double longitude, int radius = 1000)
 		{
-            var requestUri = $"{BaseUri}/api/AEDSearch?lat={latitude}&lng={longitude}&r={radius}";
-            var response = await httpClient.GetStringAsync(requestUri).ConfigureAwait(false);
-            return JsonConvert.DeserializeObject<List<AedInfo>>(response);
-        }
+			var requestUri = $"{BaseUri}/api/AEDSearch?lat={latitude}&lng={longitude}&r={radius}";
+			var response = await httpClient.GetStringAsync(requestUri).ConfigureAwait(false);
+			return JsonConvert.DeserializeObject<List<AedInfo>>(response);
+		}
 
-        /// <summary>
-        /// 直近AED位置情報取得API
-        /// "/api/NearAED?lat=[緯度]&lng=[経度]"
-        /// </summary>
-        /// <param name="latitude">緯度</param>
-        /// <param name="longitude">経度</param>
-        /// <returns></returns>
-        public async Task<List<AedInfo>> NearAedAsync(double latitude, double longitude)
+		/// <summary>
+		/// 直近AED位置情報取得API
+		/// "/api/NearAED?lat=[緯度]&lng=[経度]"
+		/// </summary>
+		/// <param name="latitude">緯度</param>
+		/// <param name="longitude">経度</param>
+		/// <returns></returns>
+		public async Task<List<AedInfo>> NearAedAsync(double latitude, double longitude)
 		{
-            var requestUri = $"{BaseUri}/api/NearAED?lat={latitude}&lng={longitude}";
-            var response = await httpClient.GetStringAsync(requestUri).ConfigureAwait(false);
-            return JsonConvert.DeserializeObject<List<AedInfo>>(response);
-        }
+			var requestUri = $"{BaseUri}/api/NearAED?lat={latitude}&lng={longitude}";
+			var response = await httpClient.GetStringAsync(requestUri).ConfigureAwait(false);
+			return JsonConvert.DeserializeObject<List<AedInfo>>(response);
+		}
 
-        /// <summary>
-        /// AED位置情報取得API
-        /// "/api/id/[id]/"
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public async Task<List<AedInfo>> IdAsync(int id)
+		/// <summary>
+		/// AED位置情報取得API
+		/// "/api/id/[id]/"
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
+		public async Task<List<AedInfo>> IdAsync(int id)
 		{
-            var requestUri = $"{BaseUri}/api/id/{id}/";
-            var response = await httpClient.GetStringAsync(requestUri).ConfigureAwait(false);
-            return JsonConvert.DeserializeObject<List<AedInfo>>(response);
-        }
+			var requestUri = $"{BaseUri}/api/id/{id}/";
+			var response = await httpClient.GetStringAsync(requestUri).ConfigureAwait(false);
+			return JsonConvert.DeserializeObject<List<AedInfo>>(response);
+		}
 
-        public void Dispose()
+		public void Dispose()
 		{
 			httpClient?.Dispose();
 		}
