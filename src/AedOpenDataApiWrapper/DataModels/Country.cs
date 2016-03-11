@@ -36,7 +36,7 @@ namespace AedOpenDataApiWrapper
 		public override string ToString()
 		{
 			return "{" +
-				$"{{nameof(CountryCode)}={CountryCode}}" + 
+				$"{nameof(CountryCode)}={CountryCode}" + 
 				"}";
 		}
 	}
