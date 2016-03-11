@@ -95,7 +95,7 @@ namespace AedOpenDataApiWrapper
 
 		/// <summary>
 		/// 周辺AED位置情報取得API
-		/// "api/AEDSearch?lat=[緯度]&lng=[経度]&r=[検索半径(m)]"
+		/// "api/AEDSearch?lat=[緯度]&amp;lng=[経度]&amp;r=[検索半径(m)]"
 		/// </summary>
 		/// <param name="latitude">緯度</param>
 		/// <param name="longitude">経度</param>
@@ -109,7 +109,7 @@ namespace AedOpenDataApiWrapper
 
 		/// <summary>
 		/// 直近AED位置情報取得API
-		/// "api/NearAED?lat=[緯度]&lng=[経度]"
+		/// "api/NearAED?lat=[緯度]&amp;lng=[経度]"
 		/// </summary>
 		/// <param name="latitude">緯度</param>
 		/// <param name="longitude">経度</param>

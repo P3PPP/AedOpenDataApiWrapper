@@ -3,10 +3,12 @@ using Newtonsoft.Json;
 
 namespace AedOpenDataApiWrapper
 {
+#pragma warning disable CS0659 // 型は Object.Equals(object o) をオーバーライドしますが、Object.GetHashCode() をオーバーライドしません
 	/// <summary>
 	/// AED位置情報
 	/// </summary>
 	public sealed class AedInfo : IEquatable<AedInfo>
+#pragma warning restore CS0659 // 型は Object.Equals(object o) をオーバーライドしますが、Object.GetHashCode() をオーバーライドしません
 	{
 		/// <summary>
 		/// 距離(m)
@@ -212,6 +214,10 @@ namespace AedOpenDataApiWrapper
 		[JsonProperty("DateOfUpdatingInformation")]
 		public string DateOfUpdatingInformation { get; set; }
 
+		/// <summary>
+		/// 指定のオブジェクトが現在のオブジェクトと等しいかどうかを判断します。
+		/// </summary>
+		/// <param name="obj">比較するオブジェクト</param>
 		public override bool Equals(object obj)
 		{
 			if (object.ReferenceEquals(obj, null))
@@ -226,6 +232,10 @@ namespace AedOpenDataApiWrapper
 			return this.Equals(obj as Country);
 		}
 
+		/// <summary>
+		/// 指定のオブジェクトが現在のオブジェクトと等しいかどうかを判断します。
+		/// </summary>
+		/// <param name="other">比較するオブジェクト</param>
 		public bool Equals(AedInfo other)
 		{
 			return this.Distance == other.Distance &&
@@ -264,6 +274,9 @@ namespace AedOpenDataApiWrapper
 				this.DateOfUpdatingInformation == other.DateOfUpdatingInformation;
 		}
 
+		/// <summary>
+		/// 文字列表現を取得します。
+		/// </summary>
 		public override string ToString()
 		{
 			return "{" +
