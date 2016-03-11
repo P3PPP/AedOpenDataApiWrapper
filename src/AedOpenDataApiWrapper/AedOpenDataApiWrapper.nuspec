@@ -14,8 +14,8 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin/$configuration$/AedOpenDataApiWrapper.dll" target="lib/portable-net45+wp8+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/AedOpenDataApiWrapper.dll" />
-    <file src="bin/$configuration$/AedOpenDataApiWrapper.xml" target="lib/portable-net45+wp8+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/AedOpenDataApiWrapper.xml" />
-    <file src="bin/$configuration$/AedOpenDataApiWrapper.pdb" target="lib/portable-net45+wp8+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/AedOpenDataApiWrapper.pdb" />
+    <file src="bin/Release/AedOpenDataApiWrapper.dll" target="lib/portable-net45+wp8+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/AedOpenDataApiWrapper.dll" />
+    <file src="bin/Release/AedOpenDataApiWrapper.xml" target="lib/portable-net45+wp8+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/AedOpenDataApiWrapper.xml" />
+    <file src="bin/Release/AedOpenDataApiWrapper.pdb" target="lib/portable-net45+wp8+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/AedOpenDataApiWrapper.pdb" />
   </files>
 </package>
